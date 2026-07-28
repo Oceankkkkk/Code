@@ -2,19 +2,40 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>name</title>
+    <title>Oceankkkkk的扑克牌</title>
   </head>
   <body>
-    <h1>My First WebPage</h1>
+    <h1>🃏 Poker Army</h1>
     <h2>Made by <i>Oceankkkkk</i></h2>
-    <svg width="10800" height="21600" id="background"></svg>
+    <svg width="2000" height="900" id="background"></svg>
     <script>
-      document.body.style.backgroundColor="forestgreen";
-      for(let j=1;j<=3;j++) {
-        let ny=j*150;
-        for(let i=1;i<=18;i++) {
-          let nx=i*150;
-          document.getElementById("background").innerHTML+=`<rect x="${nx}" y="${ny}" width="60" height="120" fill="white" stroke="black" stroke-width="2" rx="5" ry="5"></rect>`;
+      document.body.style.backgroundColor = "forestgreen";
+      
+      const huase = ['∞', '♥', '♦', '♠', '♣'];
+      const color = ['white', 'red', 'red', 'black', 'black'];
+      const numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+      
+      for (let j = 1; j <= 4; j++) {
+        let suit = huase[j];
+        let col = color[j];
+        let ny = j * 160;
+        for (let i = 1; i <= 13; i++) {
+          let nx = i * 110;
+          document.getElementById("background").innerHTML += `
+            <rect x="${nx}" y="${ny}" width="80" height="120" fill="white" stroke="black" stroke-width="2" rx="5" ry="5" />
+          `;
+          document.getElementById("background").innerHTML += `
+            <text x="${nx+15}" y="${ny+20}" font-size="18" font-weight="bold" text-anchor="middle" fill="${col}">${suit}</text>
+          `;
+          document.getElementById("background").innerHTML += `
+            <text x="${nx+35}" y="${ny+20}" font-size="12" font-weight="bold" text-anchor="middle" fill="${col}">${numbers[i-1]}</text>
+          `;
+          document.getElementById("background").innerHTML += `
+            <text x="${nx+65}" y="${ny+108}" font-size="18" font-weight="bold" text-anchor="middle" fill="${col}" transform="rotate(180, ${nx+65}, ${ny+108})">${suit}</text>
+          `;
+          document.getElementById("background").innerHTML += `
+            <text x="${nx+45}" y="${ny+108}" font-size="12" font-weight="bold" text-anchor="middle" fill="${col}" transform="rotate(180, ${nx+45}, ${ny+108})">${numbers[i-1]}</text>
+          `;
         }
       }
     </script>
